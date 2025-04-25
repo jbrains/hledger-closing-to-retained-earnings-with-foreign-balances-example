@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-SNAPSHOT_DIRECTORY="snapshots/before_closing"
+SNAPSHOT_DIRECTORY=$1
+SNAPSHOT_DIRECTORY=${SNAPSHOT_DIRECTORY:="snapshots/before_closing"}
 mkdir -p $SNAPSHOT_DIRECTORY
 hledger --file main.journal --value=then,CAD balancesheetequity > $SNAPSHOT_DIRECTORY/balance_sheet.txt
 hledger --file main.journal --value=then,CAD incomestatement > $SNAPSHOT_DIRECTORY/income_statement.txt
