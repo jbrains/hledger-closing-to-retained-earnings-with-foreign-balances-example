@@ -1,0 +1,6 @@
+2025-04-24 retain earnings  ; retain:
+    Revenue                       500.00 CAD = 0.00 CAD
+    Revenue                          100 EUR = 0 EUR
+    Revenue                       1,000. SEK = 0 SEK
+    Equity:Retained Earnings
+
