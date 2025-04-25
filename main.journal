@@ -1,0 +1,40 @@
+# Currencies
+commodity 1,000,000.00 CAD
+commodity 1,000,000.00 EUR
+commodity 1,000,000.00 SEK
+
+account Equity:Retained Earnings
+account Revenue
+account Expenses
+account Assets
+
+2024-12-31  Opening balances
+    Equity:Retained Earnings    0.00 CAD
+    Revenue    0.00 CAD
+    Expenses    0.00 CAD
+
+# Foreign currency exchange rates
+P 2025-01-01  EUR 1.1 CAD
+P 2025-01-02  EUR 1.2 CAD
+P 2025-01-03  EUR 1.3 CAD
+P 2025-01-04  EUR 1.4 CAD
+P 2025-01-05  EUR 1.5 CAD
+P 2025-01-01  SEK 0.1 CAD
+P 2025-01-02  SEK 0.2 CAD
+P 2025-01-03  SEK 0.3 CAD
+P 2025-01-04  SEK 0.4 CAD
+P 2025-01-05  SEK 0.5 CAD
+
+# Revenue/Expense transactions
+2025-01-01  Sales in Germany
+    Revenue  -100 EUR
+    Assets
+
+2025-01-03  Sales in Sweden
+    Revenue  -1000 SEK
+    Assets
+
+2025-01-05  Sales in Canada
+    Revenue  -500 CAD
+    Assets
+
