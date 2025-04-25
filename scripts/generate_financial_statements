@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+mkdir -p snapshots/before_closing
+hledger --file main.journal --value=then,CAD balancesheetequity > snapshots/before_closing/balance_sheet.txt
+hledger --file main.journal --value=then,CAD incomestatement > snapshots/before_closing/income_statement.txt
