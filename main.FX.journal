@@ -1,0 +1,2 @@
+include before_closing.journal
+include close_retained_earnings.FX.journal

@@ -142,6 +142,44 @@ Balance Sheet With Equity 2025-04-24, valued at posting date
 
 So... what's the right move here? Retained Earnings should be 910.00 CAD, but then I have to ignore the balance assertions, because I want to assert that _the converted balance_ of Revenue is 0 CAD and not that the CAD balance of Revenue is 0 CAD.
 
+### Fix the balance assertion with `include`
+
+We can fix the balance assertion problem by writing a journal file that includes the other journal files. This is related to `hledger`'s restriction that balance assertions do not work when specifying multiple `--file`s in the same command.
+
+```
+# main.FX.journal
+include before_closing.journal
+include close_retained_earnings.FX.journal
+```
+
+```
+$ hledger --file main.FX.journal balancesheetequity --value=then,CAD
+Balance Sheet With Equity 2025-04-24, valued at posting date
+
+                          ||   2025-04-24 
+==========================++==============
+ Assets                   ||              
+--------------------------++--------------
+ Assets                   ||   910.00 CAD 
+--------------------------++--------------
+                          ||   910.00 CAD 
+==========================++==============
+ Liabilities              ||              
+--------------------------++--------------
+--------------------------++--------------
+                          ||            0 
+==========================++==============
+ Equity                   ||              
+--------------------------++--------------
+ Equity:Retained Earnings || 1,150.00 CAD 
+--------------------------++--------------
+                          || 1,150.00 CAD 
+==========================++==============
+ Net:                     ||  -240.00 CAD
+```
+
+Although the balance assertions now work, the Retained Earnings amount is still wrong, because Revenue was 910.00 CAD, not 1150.00 CAD, even though the _current value_ of the foreign currencies in Assets would be worth 1150.00 CAD right now.
+
 ## Convert the Balance to 0 CAD!
 
 How do I convert the balance of Revenue to 0 CAD without hardcoding currency exchange rates, which I expect would start a slow descent into madness?
