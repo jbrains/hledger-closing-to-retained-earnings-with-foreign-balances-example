@@ -1,0 +1,7 @@
+include before_closing.journal
+
+2025-04-24  Retain earnings    ; retain:
+    Revenue                       500.00 CAD
+    Revenue                          100 EUR @@ 0 CAD
+    Revenue                       1,000. SEK @@ 410 CAD
+    Equity:Retained Earnings      -910.00 CAD
